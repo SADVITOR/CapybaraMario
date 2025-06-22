@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://ojf3vy5shvid"]
+
+[ext_resource type="Script" uid="uid://ct8toyx7h061u" path="res://Scripts/enemy_base.gd" id="1_2e53f"]
+[ext_resource type="Texture2D" uid="uid://bh0mdokihb2he" path="res://Assets/Sprites/Enemys/Enemy1.png" id="1_h8wte"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_h8wte"]
+radius = 8.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h8wte"]
+size = Vector2(10, 3)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2e53f"]
+radius = 9.0
+
+[node name="Enemy1" type="CharacterBody2D"]
+script = ExtResource("1_2e53f")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_h8wte")
+hframes = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_h8wte")
+
+[node name="DeathArea" type="Area2D" parent="."]
+
+[node name="Trigger" type="CollisionShape2D" parent="DeathArea"]
+position = Vector2(0, -8.5)
+shape = SubResource("RectangleShape2D_h8wte")
+debug_color = Color(0.906272, 0.291863, 0.215935, 0.42)
+
+[node name="DamageArea" type="Area2D" parent="."]
+
+[node name="Trigger" type="CollisionShape2D" parent="DamageArea"]
+shape = SubResource("CircleShape2D_2e53f")
+debug_color = Color(0.809932, 0.410827, 0.0762747, 0.42)
+
+[connection signal="area_entered" from="DeathArea" to="." method="_dead_enemy_trigger_enter"]

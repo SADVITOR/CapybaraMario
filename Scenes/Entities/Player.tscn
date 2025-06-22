@@ -1,12 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://bgryhdnoanla0"]
+[gd_scene load_steps=6 format=3 uid="uid://bgryhdnoanla0"]
 
 [ext_resource type="Texture2D" uid="uid://dpl7wlxft17qw" path="res://Assets/Sprites/Player/PlayerIdle.png" id="1_3kvya"]
-[ext_resource type="Script" uid="uid://h0penwyr06d4" path="res://Scripts/PlayerScripts/player_movement.gd" id="1_v402d"]
+[ext_resource type="Script" uid="uid://h0penwyr06d4" path="res://Scripts/player_movement.gd" id="1_v402d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v402d"]
 size = Vector2(9, 19)
 
-[node name="CharacterBody2D" type="CharacterBody2D" groups=["player"]]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_agccv"]
+size = Vector2(9, 21)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4oe6"]
+size = Vector2(11, 19)
+
+[node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_v402d")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -15,3 +21,16 @@ texture = ExtResource("1_3kvya")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 0.5)
 shape = SubResource("RectangleShape2D_v402d")
+
+[node name="InteractionArea" type="Area2D" parent="." groups=["player"]]
+
+[node name="Trigger" type="CollisionShape2D" parent="InteractionArea"]
+position = Vector2(-0.5, 0.5)
+shape = SubResource("RectangleShape2D_agccv")
+debug_color = Color(0.486268, 0.439845, 0.987751, 0.42)
+
+[node name="DamageArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea"]
+position = Vector2(-0.5, 0.5)
+shape = SubResource("RectangleShape2D_g4oe6")

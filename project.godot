@@ -28,10 +28,6 @@ window/stretch/mode="viewport"
 
 project/assembly_name="Capybhara Mario"
 
-[global_group]
-
-player=""
-
 [input]
 
 p_up={
