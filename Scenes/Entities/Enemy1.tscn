@@ -7,7 +7,7 @@
 radius = 8.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h8wte"]
-size = Vector2(10, 3)
+size = Vector2(16, 3)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2e53f"]
 radius = 9.0
@@ -29,7 +29,7 @@ position = Vector2(0, -8.5)
 shape = SubResource("RectangleShape2D_h8wte")
 debug_color = Color(0.906272, 0.291863, 0.215935, 0.42)
 
-[node name="DamageArea" type="Area2D" parent="."]
+[node name="DamageArea" type="Area2D" parent="." groups=["Enemy"]]
 
 [node name="Trigger" type="CollisionShape2D" parent="DamageArea"]
 shape = SubResource("CircleShape2D_2e53f")

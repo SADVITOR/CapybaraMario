@@ -13,7 +13,6 @@ tile_set = ExtResource("1_5jgm0")
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("2_36ke7")]
 position = Vector2(34, 107)
-base_jump_velocity = -200.0
 
 [node name="SurpriseBlock" parent="." instance=ExtResource("3_riv1q")]
 position = Vector2(152, 72)

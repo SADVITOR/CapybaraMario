@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://bgryhdnoanla0"]
+[gd_scene load_steps=7 format=3 uid="uid://bgryhdnoanla0"]
 
 [ext_resource type="Texture2D" uid="uid://dpl7wlxft17qw" path="res://Assets/Sprites/Player/PlayerIdle.png" id="1_3kvya"]
 [ext_resource type="Script" uid="uid://h0penwyr06d4" path="res://Scripts/player_movement.gd" id="1_v402d"]
+[ext_resource type="Texture2D" uid="uid://c475vnluna0ni" path="res://Assets/Sprites/Player/PlayerDead.png" id="2_agccv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v402d"]
 size = Vector2(9, 19)
@@ -12,8 +13,10 @@ size = Vector2(9, 21)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4oe6"]
 size = Vector2(11, 20)
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("player_sprite")]
 script = ExtResource("1_v402d")
+player_sprite = NodePath("Sprite2D")
+sprites = Array[Texture]([ExtResource("2_agccv")])
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_3kvya")
